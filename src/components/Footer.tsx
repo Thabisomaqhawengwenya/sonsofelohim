@@ -112,6 +112,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   type="button"
                   className="footer-nav-link"
                   style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
+                  onClick={() => onNavigate('names-of-god')}
+                >
+                  The Names of God
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="footer-nav-link"
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
                   onClick={() => onNavigate('join')}
                 >
                   Join the Brotherhood

@@ -12,6 +12,7 @@ import { MentorshipSection } from './sections/MentorshipSection';
 import { EventsSection } from './sections/EventsSection';
 import { JoinSection } from './sections/JoinSection';
 import { ContactSection } from './sections/ContactSection';
+import { NamesOfGodSection } from './sections/NamesOfGodSection';
 import type { PillarId } from './types';
 import './styles/main.css';
 
@@ -55,6 +56,7 @@ export const App: React.FC = () => {
       'events',
       'join',
       'contact',
+      'names-of-god',
     ];
 
     const handleScroll = () => {
@@ -124,6 +126,9 @@ export const App: React.FC = () => {
 
         {/* K. Contact Us & Regional Chapters */}
         <ContactSection />
+
+        {/* L. The Names of God (Elohim Centerpiece & Playful Typography) */}
+        <NamesOfGodSection />
       </main>
 
       {/* Universal Footer */}
