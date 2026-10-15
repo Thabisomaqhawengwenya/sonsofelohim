@@ -2786,7 +2786,9 @@ p {
   height: 100dvh;
   min-height: 100dvh;
   max-height: 100dvh;
-  padding: 0;
+  padding-top: calc(var(--nav-height, 72px) + 0.35rem);
+  padding-bottom: 0.5rem;
+  padding-inline: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -2802,7 +2804,7 @@ p {
   width: 100%;
   max-width: var(--max-content-width);
   margin-inline: auto;
-  padding: 0.65rem var(--container-padding) 0.35rem;
+  padding: 0.25rem var(--container-padding) 0.35rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2832,6 +2834,41 @@ p {
   gap: 0.65rem;
 }
 
+.toggle-pill-group {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.theme-pill-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-strong);
+  white-space: nowrap;
+}
+
+.theme-pill-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.theme-pill-btn.active {
+  background: var(--accent-bronze-bright);
+  color: #0E1115;
+  font-weight: 700;
+}
+
 .btn-compact {
   font-size: 0.78rem;
   padding: 0.35rem 0.75rem;
@@ -2844,271 +2881,263 @@ p {
   flex-grow: 1;
   width: 100%;
   max-width: 100%;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem 0.85rem;
+  padding: 0 1rem 0.5rem;
   box-sizing: border-box;
   position: relative;
 }
 
 /* Authentic Paper Mode */
-.exact-poster-canvas-100vh.poster-paper .poster-inner-sheet-100vh {
+.exact-poster-canvas-100vh.poster-paper .poster-inner-sheet-landscape {
   background-color: #FFFFFF;
   color: #0E1115;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 /* Obsidian Dark Mode */
-.exact-poster-canvas-100vh.poster-dark .poster-inner-sheet-100vh {
-  background-color: #0B0E14;
-  color: #FFFFFF;
-  border: 1px solid rgba(197, 160, 89, 0.25);
-  box-shadow: 0 0 40px rgba(197, 160, 89, 0.1);
-}
-
-/* Poster Inner Sheet: 100% height of canvas, maintaining poster aspect ratio */
-.poster-inner-sheet-100vh {
-  height: 100%;
-  max-height: calc(100dvh - 68px);
-  aspect-ratio: 1 / 1.34;
-  max-width: 95vw;
-  margin: 0 auto;
-  padding: clamp(0.6rem, 1.8vh, 1.5rem) clamp(0.75rem, 2.2vw, 2rem);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  user-select: none;
-  transition: all var(--duration-base) var(--ease-out-strong);
-}
-
-/* Header ELOHIM */
-.exact-poster-header {
-  text-align: center;
-  margin-bottom: 0;
-  cursor: pointer;
-  outline: none;
-  border-radius: 4px;
-  transition: transform var(--duration-fast) var(--ease-out-strong);
-}
-
-.exact-poster-header:hover,
-.exact-poster-header.selected {
-  transform: scale(1.015);
-}
-
-.header-elohim-text {
-  font-family: 'Bebas Neue', Impact, 'Arial Black', sans-serif;
-  font-size: clamp(3.4rem, 10.2vh, 6.8rem);
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  line-height: 0.88;
-  text-transform: uppercase;
-  color: #0E1115;
-  margin: 0;
-  padding: 0;
-  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.8);
-}
-
-.poster-dark .header-elohim-text {
+.exact-poster-canvas-100vh.poster-dark .poster-inner-sheet-landscape {
+  background-color: #0A0D13;
   color: #F8F9FA;
-  text-shadow: 0 0 25px rgba(197, 160, 89, 0.45);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  box-shadow: 0 0 45px rgba(197, 160, 89, 0.12), 0 16px 40px rgba(0, 0, 0, 0.8);
 }
 
-/* Poster Body: Distributed evenly across the vertical sheet */
-.exact-poster-body-100vh {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-block: clamp(0.15rem, 0.8vh, 0.6rem);
-}
-
-.poster-row {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr 1fr;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.align-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.align-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.align-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-}
-
-.poster-item {
-  cursor: pointer;
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
+/* Landscape Artboard: 16:9 proportion strictly fitting 100vh */
+.poster-inner-sheet-landscape {
   position: relative;
-  outline: none;
-  transition: all var(--duration-fast) var(--ease-out-strong);
+  width: 100%;
+  max-width: min(96vw, calc((100dvh - var(--nav-height, 72px) - 62px) * 1.777));
+  max-height: calc(100dvh - var(--nav-height, 72px) - 62px);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  user-select: none;
+  container-type: inline-size;
+  box-sizing: border-box;
+  transition: background-color var(--duration-base) var(--ease-out-strong),
+              color var(--duration-base) var(--ease-out-strong);
 }
 
-.poster-item:hover,
-.poster-item.selected {
-  background-color: rgba(197, 160, 89, 0.15);
+
+/* Poster Interactive Spots */
+.poster-spot {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0.15cqw 0.4cqw;
+  border-radius: 4px;
+  white-space: nowrap;
+  transform-origin: center center;
+  transition: transform var(--duration-fast) var(--ease-out-strong),
+              background-color var(--duration-fast) var(--ease-out-strong),
+              color var(--duration-fast) var(--ease-out-strong);
+}
+
+.poster-spot:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.poster-dark .poster-spot:hover {
+  background-color: rgba(197, 160, 89, 0.18);
   color: var(--accent-bronze-bright);
 }
 
-.poster-paper .poster-item:hover,
-.poster-paper .poster-item.selected {
-  background-color: rgba(0, 0, 0, 0.06);
-  color: #0A0C0F;
+.poster-spot.selected {
+  background-color: rgba(197, 160, 89, 0.22);
+  color: var(--accent-bronze-bright);
 }
 
-.poster-item:active {
+.poster-spot:active {
   transform: scale(0.97);
 }
 
-/* Responsive Typographic Scale tied to Viewport Height */
-.item-sans .text-val {
+/* ==========================================================================
+   CENTERPIECE: MASSIVE DISTRESSED BLOCK 'JESUS' (OR 'ELOHIM')
+   ========================================================================== */
+.spot-centerpiece {
+  z-index: 10;
+  text-align: center;
+  padding: 0.2cqw 0.8cqw;
+  background-color: transparent !important;
+}
+
+.spot-centerpiece:hover,
+.spot-centerpiece.selected {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.text-centerpiece-letters {
+  font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', 'Arial Black', Impact, sans-serif;
+  font-size: clamp(2.8rem, 11cqw, 6.8rem);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: #0E1115;
+  filter: url(#ink-woodblock-distress);
+  transition: transform var(--duration-fast) var(--ease-out-strong);
+}
+
+.spot-centerpiece:hover .text-centerpiece-letters,
+.spot-centerpiece.selected .text-centerpiece-letters {
+  transform: scale(1.015);
+}
+
+.poster-dark .text-centerpiece-letters {
+  color: #F8F9FA;
+  filter: none;
+  text-shadow: 0 0 35px rgba(197, 160, 89, 0.45);
+}
+
+/* ==========================================================================
+   TYPOGRAPHIC FORMATS FOR POSTER WORDS
+   ========================================================================== */
+
+/* Bold Sans */
+.spot-sans-bold .text-val {
   font-family: var(--font-body);
-  font-size: clamp(0.95rem, 2.1vh, 1.55rem);
-  font-weight: 800;
+  font-size: clamp(0.95rem, 2.5cqw, 1.85rem);
+  font-weight: 900;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1;
   color: inherit;
 }
 
-.item-serif .text-val {
-  font-family: var(--font-display);
-  font-size: clamp(0.85rem, 1.85vh, 1.4rem);
-  font-weight: 700;
-  letter-spacing: 0.06em;
+/* Stacked Sans (Word + Subtitle) */
+.spot-sans-stacked {
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.spot-sans-stacked .text-val {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2.3cqw, 1.7rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1;
   color: inherit;
 }
 
-.item-script .text-val {
-  font-family: 'Alex Brush', 'Caveat', cursive, serif;
-  font-size: clamp(1.4rem, 3.1vh, 2.45rem);
-  font-weight: 400;
-  line-height: 0.95;
-  color: inherit;
-  padding-bottom: 1px;
-}
-
-.item-script-stacked {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.script-line {
-  font-family: 'Alex Brush', 'Caveat', cursive, serif;
-  font-size: clamp(1.2rem, 2.5vh, 1.95rem);
-  font-weight: 400;
-  line-height: 0.88;
-  color: inherit;
-}
-
-.text-sub {
-  font-family: var(--font-body);
-  font-size: clamp(0.44rem, 0.9vh, 0.62rem);
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  opacity: 0.82;
-  margin-top: 1px;
-  line-height: 1.1;
-}
-
-.poster-center-cluster {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-}
-
-.item-savior {
-  margin-top: -0.25rem;
-}
-
-.item-center-jesus .text-val {
-  font-size: clamp(1.15rem, 2.3vh, 1.75rem);
+.spot-subcenter-elohim .text-val {
+  font-size: clamp(1rem, 2.7cqw, 1.95rem);
   font-weight: 900;
 }
 
-.poster-col-left {
-  display: flex;
-  flex-direction: column;
+/* Bold Serif */
+.spot-serif-bold .text-val {
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 2.35cqw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: inherit;
+}
+
+/* Stacked Serif (Word + Subtitle) */
+.spot-serif-stacked {
   align-items: flex-start;
-  gap: 0.15rem;
+  line-height: 1;
 }
 
-.poster-col-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.15rem;
+.spot-serif-stacked .text-val {
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 2.3cqw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: inherit;
 }
 
-.item-pop {
-  margin-top: -0.15rem;
-}
-
-.row-8 {
-  grid-template-columns: 1fr;
-}
-
-/* Grand Baseline: SHAMMAH */
-.poster-baseline {
-  border-top: 1px solid currentColor;
-  opacity: 0.92;
-  padding-top: clamp(0.2rem, 1vh, 0.5rem);
-  display: flex;
-  justify-content: center;
+/* Grand Bottom Serif: SHAMMAH (THE LORD IS MY BANNER) */
+.spot-shammah-bottom {
+  align-items: center;
   text-align: center;
 }
 
-.item-serif-grand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.grand-baseline-text {
+.text-shammah-grand {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4.4vh, 3.4rem);
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  line-height: 0.92;
-  text-transform: uppercase;
+  font-size: clamp(1.2rem, 3.25cqw, 2.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.09em !important;
+  line-height: 0.95 !important;
   color: inherit;
-  margin: 0;
 }
 
-.grand-baseline-sub {
-  font-family: var(--font-body);
-  font-size: clamp(0.55rem, 1.05vh, 0.78rem);
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-top: 2px;
+/* Script / Cursive Words */
+.spot-script .text-val {
+  font-family: 'Caveat', 'Alex Brush', cursive, serif;
+  font-size: clamp(1.25rem, 3.2cqw, 2.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: inherit;
+  padding-bottom: 2px;
 }
+
+.spot-alpha-omega .text-val {
+  font-size: clamp(1.3rem, 3.4cqw, 2.65rem);
+}
+
+.spot-savior .text-val {
+  font-size: clamp(1.3rem, 3.3cqw, 2.55rem);
+}
+
+/* Stacked Script: The Way / The Truth / The Life */
+.spot-stacked-script {
+  line-height: 0.84;
+}
+
+.spot-stacked-script .script-line {
+  font-family: 'Caveat', 'Alex Brush', cursive, serif;
+  font-size: clamp(1.1rem, 2.6cqw, 2.05rem);
+  font-weight: 700;
+  line-height: 0.84;
+  color: inherit;
+  display: block;
+}
+
+/* Subtitle in parentheses */
+.text-sub {
+  font-family: var(--font-body);
+  font-size: clamp(0.42rem, 0.8cqw, 0.65rem);
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: 0.88;
+  margin-top: 1px;
+  line-height: 1.1;
+  color: inherit;
+}
+
+/* Mobile & Touch Viewport Adaptations */
+@media (max-width: 768px) {
+  .exact-poster-canvas-100vh {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25rem;
+    justify-content: flex-start;
+  }
+
+  .poster-inner-sheet-landscape {
+    min-width: 680px;
+    height: calc(100dvh - 65px);
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+  }
+}
+
 
 /* Floating Drawer Overlay for Scripture (Zero Layout Shift) */
 .poster-drawer-overlay {

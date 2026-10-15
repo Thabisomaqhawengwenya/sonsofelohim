@@ -11,7 +11,7 @@ export interface DivineName {
 }
 
 export const DIVINE_NAMES: DivineName[] = [
-  // THE HERO CENTERPIECE: ELOHIM
+  // THE HERO CENTERPIECE: ELOHIM & JESUS
   {
     id: 'elohim',
     name: 'ELOHIM',
@@ -19,6 +19,16 @@ export const DIVINE_NAMES: DivineName[] = [
     meaning: 'The Mighty Creator & Sovereign God',
     scriptureRef: 'Genesis 1:1',
     scriptureText: 'In the beginning, Elohim created the heavens and the earth.',
+    styleType: 'hero',
+    highlighted: true,
+  },
+  {
+    id: 'jesus',
+    name: 'JESUS',
+    transliteration: 'יֵשׁוּעַ',
+    meaning: 'The Name Above All Names / The Lord Saves (Yeshua)',
+    scriptureRef: 'Philippians 2:9-11',
+    scriptureText: 'God exalted Him to the highest place and gave Him the name that is above every name, that at the name of Jesus every knee should bow.',
     styleType: 'hero',
     highlighted: true,
   },
