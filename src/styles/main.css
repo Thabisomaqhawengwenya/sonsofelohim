@@ -2779,222 +2779,174 @@ p {
 }
 
 /* ==========================================================================
-   NAMES OF GOD POSTER SECTION STYLES (ELOHIM CENTERPIECE & PLAYFUL LETTERS)
+   EXACT POSTER REPLICATION: THE NAMES OF GOD (ELOHIM CENTERPIECE)
+   Faithfully reproduced from user's uploaded art print
    ========================================================================== */
 
 .names-of-god-section {
-  padding-bottom: clamp(4rem, 7vw, 6rem);
-}
-
-.poster-theme-toggle-bar {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: var(--bg-surface);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 30px;
-  padding: 0.35rem 0.6rem 0.35rem 1rem;
-  margin-top: 1.5rem;
-}
-
-.toggle-label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-.toggle-pill-group {
-  display: flex;
-  gap: 0.35rem;
-}
-
-.theme-pill-btn {
-  background: transparent;
-  border: none;
-  border-radius: 20px;
-  padding: 0.4rem 0.85rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-out-strong);
-}
-
-.theme-pill-btn.active {
-  background: var(--accent-bronze-subtle);
-  border: 1px solid var(--accent-bronze-border);
-  color: var(--accent-bronze-bright);
-}
-
-/* The Poster Canvas Frame */
-.poster-artboard {
-  max-width: 960px;
-  margin-inline: auto;
-  border-radius: 12px;
-  padding: clamp(2rem, 5vw, 4rem);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
   position: relative;
-  transition: background-color var(--duration-base) var(--ease-out-strong),
-              color var(--duration-base) var(--ease-out-strong),
-              border-color var(--duration-base) var(--ease-out-strong);
 }
 
-/* Brotherhood Obsidian Mode */
-.poster-artboard.poster-dark {
-  background: radial-gradient(circle at 50% 20%, #151A24 0%, #0A0C10 80%);
-  border: 1px solid rgba(197, 160, 89, 0.28);
-  color: var(--text-primary);
-}
-
-/* Classic Printed Artboard Mode (Matches User Photo Reference) */
-.poster-artboard.poster-light {
-  background-color: #F8F6F0;
-  background-image: radial-gradient(#E8E3D8 1px, transparent 1px);
-  background-size: 24px 24px;
-  border: 2px solid #D8D2C4;
-  color: #1A1D20;
-}
-
-.poster-border-frame {
-  position: relative;
-  border: 1.5px solid currentColor;
-  opacity: 0.95;
-  border-radius: 8px;
-  padding: clamp(2rem, 4vw, 3.5rem);
-}
-
-.corner-filigree {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border: 2px solid var(--accent-bronze-bright);
-}
-
-.top-left { top: 6px; left: 6px; border-right: none; border-bottom: none; }
-.top-right { top: 6px; right: 6px; border-left: none; border-bottom: none; }
-.bottom-left { bottom: 6px; left: 6px; border-right: none; border-top: none; }
-.bottom-right { bottom: 6px; right: 6px; border-left: none; border-top: none; }
-
-/* HERO CENTERPIECE: ELOHIM (High-impact centerpiece replacing Jesus) */
-.poster-hero-name {
-  text-align: center;
-  padding: 1.5rem 1rem 2rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: transform var(--duration-fast) var(--ease-out-strong),
-              box-shadow var(--duration-fast) var(--ease-out-strong);
-}
-
-.poster-hero-name:hover,
-.poster-hero-name.active {
-  transform: translateY(-2px);
-}
-
-.hero-name-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--accent-bronze-bright);
-  margin-bottom: 0.75rem;
-}
-
-.hero-elohim-letters {
-  font-family: var(--font-display);
-  font-size: clamp(3.75rem, 9.5vw, 7.5rem);
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--accent-bronze-bright);
-  text-shadow: 0 0 40px rgba(197, 160, 89, 0.4);
-  margin-bottom: 0.5rem;
-}
-
-.poster-light .hero-elohim-letters {
-  color: #111418;
-  text-shadow: 2px 2px 0px rgba(197, 160, 89, 0.4);
-}
-
-.hero-elohim-meaning {
-  display: block;
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-bottom: 0.35rem;
-}
-
-.hero-hebrew-tag {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent-bronze);
-}
-
-/* Decorative Divider */
-.poster-divider {
+.poster-action-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-block: 2rem 2.5rem;
-  opacity: 0.35;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
-.divider-line {
-  flex-grow: 1;
-  height: 1px;
-  background-color: currentColor;
+.btn-print-poster {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
 }
 
-.divider-crest {
-  color: var(--accent-bronze-bright);
+/* ==========================================================================
+   THE EXACT POSTER ARTBOARD CONTAINER
+   ========================================================================== */
+
+.exact-poster-canvas {
+  max-width: 820px;
+  margin: 3rem auto 0;
+  border-radius: 6px;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  transition: all var(--duration-base) var(--ease-out-strong);
 }
 
-/* Playful Typographic Names Grid */
-.poster-names-cloud {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 1.5rem;
-  align-items: center;
-  justify-items: center;
+/* Authentic Paper Print Mode (Default: White paper canvas like the photo) */
+.exact-poster-canvas.poster-paper {
+  background-color: #EFECE6;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 16px 16px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), inset 0 0 40px rgba(0, 0, 0, 0.05);
+}
+
+.exact-poster-canvas.poster-paper .poster-inner-sheet {
+  background-color: #FFFFFF;
+  color: #0E1115;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* Obsidian Brotherhood Mode (Dark) */
+.exact-poster-canvas.poster-dark {
+  background: radial-gradient(circle at 50% 20%, #151A24 0%, #07090C 80%);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95);
+}
+
+.exact-poster-canvas.poster-dark .poster-inner-sheet {
+  background-color: #0C0F15;
+  color: #FFFFFF;
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  box-shadow: 0 0 45px rgba(197, 160, 89, 0.08);
+}
+
+/* Inner Sheet - Vertical Portrait Poster */
+.poster-inner-sheet {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.75rem, 5vw, 3.75rem);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--duration-base) var(--ease-out-strong);
+}
+
+/* ==========================================================================
+   TOP GIANT HEADER: ELOHIM
+   ========================================================================== */
+
+.exact-poster-header {
   text-align: center;
+  margin-bottom: clamp(1.25rem, 3vw, 2.25rem);
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  transition: transform var(--duration-fast) var(--ease-out-strong);
 }
 
-@media (max-width: 768px) {
-  .poster-names-cloud {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem 1rem;
-  }
+.exact-poster-header:hover,
+.exact-poster-header.selected {
+  transform: scale(1.015);
 }
 
-@media (max-width: 480px) {
-  .poster-names-cloud {
+.header-elohim-text {
+  font-family: 'Bebas Neue', Impact, 'Arial Black', sans-serif;
+  font-size: clamp(6.25rem, 17.5vw, 11.75rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: #0E1115;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.8);
+}
+
+.poster-dark .header-elohim-text {
+  color: #F8F9FA;
+  text-shadow: 0 0 35px rgba(197, 160, 89, 0.45);
+}
+
+/* ==========================================================================
+   POSTER ROWS & TYPOGRAPHIC LAYOUT
+   ========================================================================== */
+
+.exact-poster-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.6vw, 2.1rem);
+}
+
+.poster-row {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 580px) {
+  .poster-row {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
+    text-align: center !important;
+  }
+  .align-left, .align-right, .align-center {
+    align-items: center !important;
+    text-align: center !important;
   }
 }
 
-/* Individual Name Tiles with Playful Typographic Variations */
-.name-tile {
+.align-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.align-center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1rem;
-  border-radius: 6px;
+  text-align: center;
+}
+
+.align-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Common Poster Item */
+.poster-item {
   cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
   position: relative;
   outline: none;
   user-select: none;
@@ -3003,100 +2955,161 @@ p {
               color var(--duration-fast) var(--ease-out-strong);
 }
 
-.name-tile:active {
-  transform: scale(0.96) !important;
-}
-
-.poster-dark .name-tile:hover,
-.poster-dark .name-tile.tile-active {
-  background-color: rgba(197, 160, 89, 0.12);
+.poster-item:hover,
+.poster-item.selected {
+  background-color: rgba(197, 160, 89, 0.15);
   color: var(--accent-bronze-bright);
 }
 
-.poster-light .name-tile:hover,
-.poster-light .name-tile.tile-active {
-  background-color: rgba(0, 0, 0, 0.06);
-  color: #0A0C10;
+.poster-paper .poster-item:hover,
+.poster-paper .poster-item.selected {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #0A0C0F;
 }
 
-/* Typographic Style Types */
-.tile-script .name-text {
-  font-family: 'Caveat', cursive, Georgia;
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.1;
-  padding-bottom: 0.25rem;
+.poster-item:active {
+  transform: scale(0.97);
 }
 
-.tile-sans .name-text {
+/* Typography Categories matching the Photo */
+.item-sans .text-val {
   font-family: var(--font-body);
-  font-size: clamp(1.4rem, 2.2vw, 1.95rem);
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: clamp(1.4rem, 2.7vw, 2.15rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  line-height: 1.05;
+  color: inherit;
 }
 
-.tile-serif .name-text {
+.item-serif .text-val {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-size: clamp(1.15rem, 2.1vw, 1.85rem);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
+  line-height: 1.1;
+  color: inherit;
 }
 
-.tile-stacked .name-stacked-lines {
+.item-script .text-val {
+  font-family: 'Alex Brush', 'Caveat', cursive, serif;
+  font-size: clamp(2.35rem, 4.4vw, 3.45rem);
+  font-weight: 400;
+  line-height: 1;
+  color: inherit;
+  padding-bottom: 2px;
+}
+
+.item-script-stacked {
   display: flex;
   flex-direction: column;
-  font-family: 'Caveat', cursive, Georgia;
-  font-size: clamp(1.45rem, 2.4vw, 1.95rem);
-  line-height: 1.05;
-  font-weight: 700;
-  padding-bottom: 0.2rem;
-}
-
-.name-sub-meaning {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.65;
-  margin-top: 0.2rem;
-}
-
-/* Grand Baseline: SHAMMAH */
-.poster-baseline-wrapper {
-  margin-top: 2.75rem;
-  padding-top: 1.75rem;
-  border-top: 1px dashed currentColor;
-  opacity: 0.95;
-  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.baseline-shammah {
+.script-line {
+  font-family: 'Alex Brush', 'Caveat', cursive, serif;
+  font-size: clamp(1.95rem, 3.6vw, 2.75rem);
+  font-weight: 400;
+  line-height: 0.92;
+  color: inherit;
+}
+
+/* Small Subtitle in Parentheses Underneath (Matching Photo) */
+.text-sub {
+  font-family: var(--font-body);
+  font-size: clamp(0.55rem, 0.95vw, 0.68rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* Row Specific Adjustments */
+.poster-center-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.item-savior {
+  margin-top: -0.35rem;
+}
+
+.item-center-jesus .text-val {
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
+  font-weight: 900;
+}
+
+.poster-col-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.poster-col-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.item-pop {
+  margin-top: -0.25rem;
+}
+
+/* Row 8 (SHAMMAH - left aligned) */
+.row-8 {
+  grid-template-columns: 1fr;
+  margin-top: 0.25rem;
+}
+
+/* Grand Baseline: SHAMMAH (THE LORD IS MY BANNER) */
+.poster-baseline {
+  border-top: 1px solid currentColor;
+  opacity: 0.92;
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  padding-top: clamp(1.25rem, 2.5vw, 2rem);
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
-.baseline-letters {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.item-serif-grand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.baseline-hebrew {
-  display: block;
-  font-size: 0.78rem;
-  color: var(--accent-bronze);
-  margin-top: 0.25rem;
+.grand-baseline-text {
+  font-family: var(--font-display);
+  font-size: clamp(2.65rem, 6vw, 4.65rem);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: inherit;
+  margin: 0;
+}
+
+.grand-baseline-sub {
+  font-family: var(--font-body);
+  font-size: clamp(0.72rem, 1.25vw, 0.92rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 0.4rem;
 }
 
 /* Interactive Name Inspector */
 .name-inspector-card {
-  max-width: 960px;
+  max-width: 820px;
   margin-inline: auto;
   margin-top: 2.5rem;
   display: grid;
@@ -3188,7 +3201,7 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 0.85rem;
-  max-width: 960px;
+  max-width: 820px;
   margin-inline: auto;
   margin-top: 2rem;
   background: rgba(255, 255, 255, 0.02);
@@ -3209,3 +3222,37 @@ p {
   font-style: normal;
   font-weight: 700;
 }
+
+/* ==========================================================================
+   PRINT MEDIA STYLES
+   ========================================================================== */
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .exact-poster-canvas, .exact-poster-canvas * {
+    visibility: visible;
+  }
+  .exact-poster-canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100% !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  .poster-inner-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    padding: 1.5cm !important;
+  }
+  .navbar, .site-footer, .section-header, .name-inspector-card, .names-footnote, .poster-action-controls {
+    display: none !important;
+  }
+}
+

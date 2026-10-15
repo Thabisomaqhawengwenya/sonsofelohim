@@ -1,50 +1,17 @@
 import React, { useState } from 'react';
 import { DIVINE_NAMES } from '../data/namesOfGod';
 import type { DivineName } from '../data/namesOfGod';
-import { Sparkles, BookOpen, Layers, Shield, Check } from 'lucide-react';
+import { BookOpen, Printer, Check } from 'lucide-react';
 
 export const NamesOfGodSection: React.FC = () => {
-  const [selectedName, setSelectedName] = useState<DivineName>(DIVINE_NAMES[0]); // defaults to ELOHIM
-  const [artboardTheme, setArtboardTheme] = useState<'poster-light' | 'poster-dark'>('poster-dark');
+  const [selectedNameId, setSelectedNameId] = useState<string>('elohim');
+  const [posterTheme, setPosterTheme] = useState<'poster-paper' | 'poster-dark'>('poster-paper');
 
-  const elohimHero = DIVINE_NAMES.find((n) => n.id === 'elohim') || DIVINE_NAMES[0];
-  const shammahFooter = DIVINE_NAMES.find((n) => n.id === 'shammah') || DIVINE_NAMES[DIVINE_NAMES.length - 1];
+  const selectedName: DivineName =
+    DIVINE_NAMES.find((n) => n.id === selectedNameId) || DIVINE_NAMES[0];
 
-  // Group names into a playful multi-column poster layout mimicking the reference art
-  const posterGridNames = DIVINE_NAMES.filter((n) => n.id !== 'elohim' && n.id !== 'shammah');
-
-  const renderNameTile = (item: DivineName) => {
-    const isSelected = selectedName.id === item.id;
-    const rotation = item.rotationDeg ? `rotate(${item.rotationDeg}deg)` : 'none';
-
-    return (
-      <div
-        key={item.id}
-        className={`name-tile tile-${item.styleType} ${isSelected ? 'tile-active' : ''}`}
-        style={{ transform: rotation }}
-        onClick={() => setSelectedName(item)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            setSelectedName(item);
-          }
-        }}
-        aria-label={`${item.name} - ${item.meaning}`}
-      >
-        {item.styleType === 'stacked' ? (
-          <div className="name-stacked-lines">
-            <span>The Way</span>
-            <span>The Truth</span>
-            <span>The Life</span>
-          </div>
-        ) : (
-          <span className="name-text">{item.name}</span>
-        )}
-        <span className="name-sub-meaning">({item.meaning.split('/')[0].trim()})</span>
-      </div>
-    );
+  const handlePrint = () => {
+    window.print();
   };
 
   return (
@@ -52,92 +19,340 @@ export const NamesOfGodSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <span className="badge-tag">The Sovereign Identity</span>
+          <span className="badge-tag">Sacred Typography</span>
           <h2 className="section-title">The Names of God</h2>
           <p className="section-description">
-            The unshakeable character, redemptive covenant titles, and sovereign majesty of our Lord.
+            A typographic tribute celebrating the covenant attributes, sovereign majesty, and redemptive character of God—with <strong>Elohim</strong> reigning at the summit.
           </p>
 
-          {/* Theme Toggle Pill */}
-          <div className="poster-theme-toggle-bar">
-            <span className="toggle-label">
-              <Layers size={14} className="text-bronze" />
-              <span>Canvas Display:</span>
-            </span>
+          {/* Controls Bar: Theme Switcher + Print */}
+          <div className="poster-action-controls">
             <div className="toggle-pill-group">
               <button
                 type="button"
-                className={`theme-pill-btn ${artboardTheme === 'poster-dark' ? 'active' : ''}`}
-                onClick={() => setArtboardTheme('poster-dark')}
+                className={`theme-pill-btn ${posterTheme === 'poster-paper' ? 'active' : ''}`}
+                onClick={() => setPosterTheme('poster-paper')}
               >
-                Brotherhood Obsidian
+                Authentic Poster Print (White)
               </button>
               <button
                 type="button"
-                className={`theme-pill-btn ${artboardTheme === 'poster-light' ? 'active' : ''}`}
-                onClick={() => setArtboardTheme('poster-light')}
+                className={`theme-pill-btn ${posterTheme === 'poster-dark' ? 'active' : ''}`}
+                onClick={() => setPosterTheme('poster-dark')}
               >
-                Classic Artboard
+                Brotherhood Obsidian (Dark)
               </button>
             </div>
+
+            <button
+              type="button"
+              className="btn btn-secondary btn-print-poster"
+              onClick={handlePrint}
+              title="Print or Save Poster"
+            >
+              <Printer size={15} />
+              Print Poster
+            </button>
           </div>
         </div>
 
-        {/* The Typographic Poster Artboard */}
-        <div className={`poster-artboard ${artboardTheme}`}>
-          <div className="poster-border-frame">
-            {/* Corner Filigrees */}
-            <div className="corner-filigree top-left" aria-hidden="true" />
-            <div className="corner-filigree top-right" aria-hidden="true" />
-            <div className="corner-filigree bottom-left" aria-hidden="true" />
-            <div className="corner-filigree bottom-right" aria-hidden="true" />
-
-            {/* HERO CENTERPIECE: ELOHIM (Replaces Jesus as requested) */}
+        {/* ==========================================================================
+            THE EXACT POSTER ARTBOARD (1:1 STRUCTURAL REPLICA OF THE IMAGE)
+           ========================================================================== */}
+        <div className={`exact-poster-canvas ${posterTheme}`}>
+          <div className="poster-inner-sheet">
+            {/* Top Giant Header: ELOHIM (Replaces Jesus from the reference image) */}
             <div
-              className={`poster-hero-name ${selectedName.id === 'elohim' ? 'active' : ''}`}
-              onClick={() => setSelectedName(elohimHero)}
+              className={`exact-poster-header ${selectedNameId === 'elohim' ? 'selected' : ''}`}
+              onClick={() => setSelectedNameId('elohim')}
               role="button"
               tabIndex={0}
               aria-label="ELOHIM - The Mighty Creator"
             >
-              <div className="hero-name-badge">
-                <Sparkles size={14} />
-                <span>Supreme Creator Archetype</span>
+              <h1 className="header-elohim-text">ELOHIM</h1>
+            </div>
+
+            {/* Poster Grid - Exact Rows and Positions from the Picture */}
+            <div className="exact-poster-body">
+              {/* Row 1: ABBA | KING OF KINGS | JIREH */}
+              <div className="poster-row row-1">
+                <div
+                  className={`poster-item item-sans align-left ${selectedNameId === 'abba' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('abba')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">ABBA</span>
+                </div>
+
+                <div
+                  className={`poster-item item-serif align-center ${selectedNameId === 'king-of-kings' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('king-of-kings')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">KING OF KINGS</span>
+                </div>
+
+                <div
+                  className={`poster-item item-sans align-right ${selectedNameId === 'jireh' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('jireh')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">JIREH</span>
+                  <span className="text-sub">(LORD WILL PROVIDE)</span>
+                </div>
               </div>
-              <h1 className="hero-elohim-letters">ELOHIM</h1>
-              <span className="hero-elohim-meaning">(THE MIGHTY CREATOR &amp; SOVEREIGN GOD)</span>
-              <span className="hero-hebrew-tag">{elohimHero.transliteration} &bull; Genesis 1:1</span>
-            </div>
 
-            {/* Sub-Divider Decorative Line */}
-            <div className="poster-divider" aria-hidden="true">
-              <span className="divider-line" />
-              <Shield size={16} className="divider-crest" />
-              <span className="divider-line" />
-            </div>
+              {/* Row 2: Christ | Name Above All names | Messiah */}
+              <div className="poster-row row-2">
+                <div
+                  className={`poster-item item-script align-left ${selectedNameId === 'christ' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('christ')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Christ</span>
+                </div>
 
-            {/* Playful Typographic Cloud / Wall */}
-            <div className="poster-names-cloud">
-              {posterGridNames.map((nameItem) => renderNameTile(nameItem))}
-            </div>
+                <div
+                  className={`poster-item item-script align-center ${selectedNameId === 'name-above-all-names' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('name-above-all-names')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Name Above All names</span>
+                </div>
 
-            {/* Grand Baseline: SHAMMAH (The Lord is My Banner / The Lord is There) */}
-            <div className="poster-baseline-wrapper">
-              <div
-                className={`name-tile baseline-shammah ${selectedName.id === 'shammah' ? 'tile-active' : ''}`}
-                onClick={() => setSelectedName(shammahFooter)}
-                role="button"
-                tabIndex={0}
-              >
-                <h3 className="baseline-letters">{shammahFooter.name}</h3>
-                <span className="name-sub-meaning">({shammahFooter.meaning})</span>
-                <span className="baseline-hebrew">{shammahFooter.transliteration} &bull; Ezekiel 48:35</span>
+                <div
+                  className={`poster-item item-script align-right ${selectedNameId === 'messiah' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('messiah')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Messiah</span>
+                </div>
+              </div>
+
+              {/* Row 3: RAPHA | EL SHADDAI & Savior | ADONAI */}
+              <div className="poster-row row-3">
+                <div
+                  className={`poster-item item-sans align-left ${selectedNameId === 'rapha' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('rapha')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">RAPHA</span>
+                </div>
+
+                <div className="poster-center-cluster">
+                  <div
+                    className={`poster-item item-serif align-center ${selectedNameId === 'el-shaddai' ? 'selected' : ''}`}
+                    onClick={() => setSelectedNameId('el-shaddai')}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="text-val">EL SHADDAI</span>
+                  </div>
+                  <div
+                    className={`poster-item item-script align-center item-savior ${selectedNameId === 'savior' ? 'selected' : ''}`}
+                    onClick={() => setSelectedNameId('savior')}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="text-val">Savior</span>
+                  </div>
+                </div>
+
+                <div
+                  className={`poster-item item-sans align-right ${selectedNameId === 'adonai' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('adonai')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">ADONAI</span>
+                </div>
+              </div>
+
+              {/* Row 4: Lamb Of God | YAHWEH (I THE LORD) | Redeemer */}
+              <div className="poster-row row-4">
+                <div
+                  className={`poster-item item-script align-left ${selectedNameId === 'lamb-of-god' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('lamb-of-god')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Lamb Of God</span>
+                </div>
+
+                <div
+                  className={`poster-item item-sans align-center ${selectedNameId === 'yahweh' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('yahweh')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">YAHWEH</span>
+                  <span className="text-sub">(I THE LORD)</span>
+                </div>
+
+                <div
+                  className={`poster-item item-script align-right ${selectedNameId === 'redeemer' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('redeemer')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Redeemer</span>
+                </div>
+              </div>
+
+              {/* Row 5: ROHI (THE LORD) | Alpha and Omega | SHALOM (THE PRINCE OF PEACE) */}
+              <div className="poster-row row-5">
+                <div
+                  className={`poster-item item-sans align-left ${selectedNameId === 'rohi' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('rohi')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">ROHI</span>
+                  <span className="text-sub">(THE LORD)</span>
+                </div>
+
+                <div
+                  className={`poster-item item-script align-center ${selectedNameId === 'alpha-omega' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('alpha-omega')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Alpha and Omega</span>
+                </div>
+
+                <div
+                  className={`poster-item item-serif align-right ${selectedNameId === 'shalom' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('shalom')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">SHALOM</span>
+                  <span className="text-sub">(THE PRINCE OF PEACE)</span>
+                </div>
+              </div>
+
+              {/* Row 6: Emmanuel | JESUS (Swapped from Elohim) | Light Of the World */}
+              <div className="poster-row row-6">
+                <div
+                  className={`poster-item item-script align-left ${selectedNameId === 'emmanuel' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('emmanuel')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Emmanuel</span>
+                </div>
+
+                <div
+                  className={`poster-item item-sans align-center item-center-jesus ${selectedNameId === 'elohim' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('elohim')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">JESUS</span>
+                  <span className="text-sub">(THE MIGHTY SAVIOR)</span>
+                </div>
+
+                <div
+                  className={`poster-item item-script align-right ${selectedNameId === 'light-of-the-world' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('light-of-the-world')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">Light Of the World</span>
+                </div>
+              </div>
+
+              {/* Row 7: NISSI + Prince of Peace | Stacked The Way/The Truth/The Life | TSIDKENU + Lord Of Lords */}
+              <div className="poster-row row-7">
+                <div className="poster-col-left">
+                  <div
+                    className={`poster-item item-sans align-left ${selectedNameId === 'nissi' ? 'selected' : ''}`}
+                    onClick={() => setSelectedNameId('nissi')}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="text-val">NISSI</span>
+                  </div>
+                  <div
+                    className={`poster-item item-script align-left item-pop ${selectedNameId === 'prince-of-peace' ? 'selected' : ''}`}
+                    onClick={() => setSelectedNameId('prince-of-peace')}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="text-val">Prince of Peace</span>
+                  </div>
+                </div>
+
+                {/* Center: Stacked 3-line Script */}
+                <div
+                  className={`poster-item item-script-stacked align-center ${selectedNameId === 'the-way-truth-life' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('the-way-truth-life')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="script-line">The Way</span>
+                  <span className="script-line">The Truth</span>
+                  <span className="script-line">The Life</span>
+                </div>
+
+                <div className="poster-col-right">
+                  <div
+                    className={`poster-item item-serif align-right ${selectedNameId === 'tsidkenu' ? 'selected' : ''}`}
+                    onClick={() => setSelectedNameId('tsidkenu')}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="text-val">TSIDKENU</span>
+                    <span className="text-sub">(THE LORD OUR RIGHTEOUSNESS)</span>
+                  </div>
+                  <div
+                    className={`poster-item item-script align-right item-pop ${selectedNameId === 'lord-of-lords' ? 'selected' : ''}`}
+                    onClick={() => setSelectedNameId('lord-of-lords')}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="text-val">Lord Of Lords</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 8: SHAMMAH (THE LORD IS THERE) */}
+              <div className="poster-row row-8">
+                <div
+                  className={`poster-item item-sans align-left ${selectedNameId === 'shammah' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('shammah')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="text-val">SHAMMAH</span>
+                  <span className="text-sub">(THE LORD IS THERE)</span>
+                </div>
+              </div>
+
+              {/* Grand Baseline: SHAMMAH (THE LORD IS MY BANNER) */}
+              <div className="poster-baseline">
+                <div
+                  className={`poster-item item-serif-grand align-center ${selectedNameId === 'shammah' ? 'selected' : ''}`}
+                  onClick={() => setSelectedNameId('shammah')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <h2 className="grand-baseline-text">SHAMMAH</h2>
+                  <span className="grand-baseline-sub">(THE LORD IS MY BANNER)</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Interactive Deep Meaning Inspector Card */}
+        {/* Interactive Scripture & Meaning Inspector */}
         <div className="name-inspector-card surface-card">
           <div className="inspector-left">
             <div className="inspector-icon">
@@ -161,11 +376,11 @@ export const NamesOfGodSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Footnote on Brotherhood Connection */}
+        {/* Brotherhood Theological Note */}
         <div className="names-footnote">
           <Check size={16} className="text-bronze" style={{ flexShrink: 0 }} />
           <p>
-            <strong>The Sons of Elohim Calling:</strong> We draw our name from <em>Elohim</em>—recognizing that the God who ordered the universe out of chaos calls His sons to conquer chaos in their own lives, building discipline, strength, and purpose.
+            <strong>The Sons of Elohim Calling:</strong> In Hebrew Scripture, <em>Elohim</em> is the powerful Name of God as the Supreme Creator (Genesis 1:1). As young men walking in brotherhood, we look to Elohim who brings divine order out of chaos, calling us to bring discipline, character, and strength to our generation.
           </p>
         </div>
       </div>
