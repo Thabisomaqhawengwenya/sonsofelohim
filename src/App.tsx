@@ -9,7 +9,9 @@ import { BrotherhoodApproachSection } from './sections/BrotherhoodApproachSectio
 import { AboutSection } from './sections/AboutSection';
 import { PillarsDeepDiveSection } from './sections/PillarsDeepDiveSection';
 import { MentorshipSection } from './sections/MentorshipSection';
+import { BrotherStoriesSection } from './sections/BrotherStoriesSection';
 import { EventsSection } from './sections/EventsSection';
+import { FaqStewardsSection } from './sections/FaqStewardsSection';
 import { JoinSection } from './sections/JoinSection';
 import { ContactSection } from './sections/ContactSection';
 import { NamesOfGodSection } from './sections/NamesOfGodSection';
@@ -53,7 +55,9 @@ export const App: React.FC = () => {
       'about',
       'pillars-deep',
       'mentorship',
+      'brother-stories',
       'events',
+      'faq-stewards',
       'join',
       'contact',
       'names-of-god',
@@ -118,18 +122,25 @@ export const App: React.FC = () => {
           onRequestGuidance={() => handleNavigate('join')}
         />
 
-        {/* I. Activities, Gatherings & Events */}
+        {/* I. Voices of the Brotherhood (Real Human Stories) */}
+        <BrotherStoriesSection onJoinClick={() => handleNavigate('join')} />
+
+        {/* J. Activities, Gatherings & Events */}
         <EventsSection onJoinNotify={() => handleNavigate('join')} />
 
-        {/* J. Join the Brotherhood Membership Form */}
+        {/* K. Stewards Letter & Questions Brothers Ask */}
+        <FaqStewardsSection />
+
+        {/* L. Join the Brotherhood Membership Form */}
         <JoinSection />
 
-        {/* K. Contact Us & Regional Chapters */}
+        {/* M. Contact Us & Regional Chapters */}
         <ContactSection />
 
-        {/* L. The Names of God (Elohim Centerpiece & Playful Typography) */}
+        {/* N. The Names of God (Elohim Centerpiece & Playful Typography) */}
         <NamesOfGodSection />
       </main>
+
 
       {/* Universal Footer */}
       <Footer onNavigate={handleNavigate} />

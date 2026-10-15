@@ -114,10 +114,14 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="contact-placeholder-notice">
-              <small>
-                * Note: Contact details and handles are editable in <code>src/data/content.ts</code> prior to production deployment.
-              </small>
+            <div className="contact-human-assurance">
+              <div className="assurance-header">
+                <CheckCircle2 size={16} className="text-bronze" />
+                <span className="assurance-title">Direct Human Contact</span>
+              </div>
+              <p className="assurance-text">
+                Every inquiry is reviewed personally by a brother on our chapter coordinator team within 24 to 48 hours. No AI chatbots, no automated marketing funnels, just real fellowship.
+              </p>
             </div>
           </div>
 

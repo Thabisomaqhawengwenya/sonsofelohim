@@ -94,7 +94,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ onJoinNotify }) =>
               <div className="event-card-footer">
                 <div className="event-honest-badge">
                   <span className="pulse-dot" />
-                  <span>Cohort Assembly Blueprint</span>
+                  <span>Active Chapter Assembly</span>
                 </div>
                 <button
                   type="button"

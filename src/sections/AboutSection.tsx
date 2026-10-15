@@ -49,7 +49,7 @@ export const AboutSection: React.FC = () => {
           <div className="challenges-header">
             <h3 className="challenges-title">Why the Brotherhood Exists</h3>
             <p className="challenges-lead">
-              Young people today—particularly young men ages 15 to 25—navigate a uniquely hostile landscape of isolation, superficial connections, economic confusion, and moral ambiguity.
+              Young men between 15 and 25 are growing up in an environment of quiet isolation, superficial social feeds, economic pressure, and moral confusion.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export const AboutSection: React.FC = () => {
             <div className="challenge-item">
               <h4 className="challenge-title">Imbalanced Development</h4>
               <p className="challenge-desc">
-                Too many hyper-focus on gym aesthetics while neglecting financial literacy, or study theology while ignoring bodily discipline. We demand balanced, holistic growth across all five pillars.
+                Too many hyper-focus on gym aesthetics while neglecting financial literacy, or study theology while ignoring bodily discipline. We insist on well-rounded, whole-man discipline across all five pillars.
               </p>
             </div>
           </div>

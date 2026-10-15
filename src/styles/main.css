@@ -3467,4 +3467,517 @@ p {
   }
 }
 
+/* ==========================================================================
+   HUMAN BROTHERHOOD SECTIONS (AUTHENTIC TESTIMONIALS, STEWARDS & FAQ)
+   Craft Floor: Contrast >= 4.5:1, Tactile buttons, No AI clichés
+   ========================================================================== */
+
+/* 1. Brother Stories Section */
+.brother-stories-section {
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.stories-tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.story-tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.75rem 1.15rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform var(--duration-fast) var(--ease-out-strong),
+              border-color var(--duration-fast) var(--ease-out-strong),
+              background var(--duration-fast) var(--ease-out-strong);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .story-tab-btn:hover {
+    border-color: var(--accent-bronze);
+    background: var(--bg-surface-elevated);
+  }
+}
+
+.story-tab-btn:active {
+  transform: scale(0.97);
+}
+
+.story-tab-btn.active {
+  background: var(--bg-surface-highlight);
+  border-color: var(--accent-bronze-bright);
+  box-shadow: 0 0 16px var(--accent-bronze-subtle);
+}
+
+.story-tab-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.story-tab-btn.active .story-tab-name {
+  color: var(--accent-bronze-bright);
+}
+
+.story-tab-meta {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.story-spotlight-card {
+  padding: 2.25rem 2.5rem;
+  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-card-border);
+  box-shadow: var(--shadow-tinted-md);
+  margin-bottom: 1.5rem;
+}
+
+.story-card-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.story-author-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.story-avatar-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-surface-highlight) 0%, var(--bg-surface) 100%);
+  border: 1.5px solid var(--accent-bronze);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-bronze-bright);
+  box-shadow: var(--shadow-tinted-sm);
+}
+
+.story-author-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 0 0 0.35rem 0;
+  letter-spacing: 0.02em;
+}
+
+.story-age {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.story-author-meta {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.story-author-meta .meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.story-focus-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  background: var(--accent-bronze-subtle);
+  border: 1px solid var(--accent-bronze-border);
+  color: var(--accent-bronze-bright);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.story-quote-box {
+  position: relative;
+  margin: 1.5rem 0 2rem 0;
+  padding: 1.5rem 1.75rem 1.5rem 2rem;
+  background: rgba(7, 9, 12, 0.45);
+  border-left: 3px solid var(--accent-bronze);
+  border-radius: 0 8px 8px 0;
+}
+
+.quote-icon {
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.story-quote-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.story-journey-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.journey-col {
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.journey-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.85rem 0;
+}
+
+.journey-before .journey-title {
+  color: #F87171;
+}
+
+.journey-after .journey-title {
+  color: var(--accent-bronze-bright);
+}
+
+.journey-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.before-dot {
+  background: #EF4444;
+}
+
+.after-dot {
+  background: var(--accent-bronze-bright);
+}
+
+.journey-body {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.story-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.story-footer-note {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 2. Stewards Open Letter */
+.faq-stewards-section {
+  position: relative;
+  background-color: var(--bg-void);
+}
+
+.stewards-letter-card {
+  padding: 3rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(24, 30, 41, 0.9) 0%, rgba(18, 22, 30, 0.9) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  box-shadow: var(--shadow-tinted-lg);
+  margin-bottom: 4.5rem;
+}
+
+.stewards-letter-header {
+  margin-bottom: 2rem;
+}
+
+.letter-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.letter-scripture-ref {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-bronze-bright);
+}
+
+.stewards-letter-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+.stewards-letter-body {
+  max-width: 75ch;
+  margin-bottom: 2.25rem;
+}
+
+.letter-paragraph {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 1.35rem;
+}
+
+.letter-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.stewards-letter-signoff {
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(197, 160, 89, 0.16);
+}
+
+.signoff-lead {
+  display: block;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.signatories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.signatory-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* 3. Human FAQ Component */
+.human-faq-wrapper {
+  margin-top: 1rem;
+}
+
+.faq-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 2.25rem;
+}
+
+.faq-filter-bar .filter-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out-strong),
+              background var(--duration-fast) var(--ease-out-strong),
+              border-color var(--duration-fast) var(--ease-out-strong),
+              color var(--duration-fast) var(--ease-out-strong);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .faq-filter-bar .filter-btn:hover {
+    background: var(--accent-bronze-subtle);
+    border-color: var(--accent-bronze);
+    color: var(--text-primary);
+  }
+}
+
+.faq-filter-bar .filter-btn:active {
+  transform: scale(0.97);
+}
+
+.faq-filter-bar .filter-btn.active {
+  background: var(--accent-bronze-subtle);
+  border-color: var(--accent-bronze-bright);
+  color: var(--accent-bronze-bright);
+  font-weight: 600;
+}
+
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-radius: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-card-border);
+  overflow: hidden;
+  transition: border-color var(--duration-fast) var(--ease-out-strong),
+              box-shadow var(--duration-fast) var(--ease-out-strong);
+}
+
+.faq-item.open {
+  border-color: var(--accent-bronze-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.faq-question-text {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.faq-item.open .faq-question-text {
+  color: var(--accent-bronze-bright);
+}
+
+.faq-toggle-icon {
+  color: var(--accent-bronze-bright);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.faq-answer-content {
+  padding: 0 1.5rem 1.35rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.faq-answer-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0.75rem 0 0 0;
+}
+
+/* 4. Contact Human Assurance Box */
+.contact-human-assurance {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.4rem;
+  background: rgba(197, 160, 89, 0.06);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  border-left: 3px solid var(--accent-bronze);
+  border-radius: 6px;
+}
+
+.assurance-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.assurance-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-bronze-bright);
+}
+
+.assurance-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Responsive Overrides for Human Sections */
+@media (max-width: 768px) {
+  .story-spotlight-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .story-journey-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stewards-letter-card {
+    padding: 1.75rem 1.35rem;
+  }
+
+  .story-card-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .story-quote-text {
+    font-size: 1.02rem;
+  }
+}
+
+
 

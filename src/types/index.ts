@@ -72,3 +72,28 @@ export interface ContactFormData {
   subject: string;
   message: string;
 }
+
+export interface BrotherStory {
+  id: string;
+  name: string;
+  age: number;
+  location: string;
+  pillarFocus: string;
+  timeInBrotherhood: string;
+  rawChallenge: string;
+  brotherhoodTurningPoint: string;
+  quote: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+  category: 'joining' | 'finances' | 'spirituality' | 'brotherhood';
+}
+
+export interface StewardLetter {
+  title: string;
+  signatories: string[];
+  scripture: string;
+  paragraphs: string[];
+}

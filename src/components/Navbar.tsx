@@ -22,13 +22,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'mission', label: 'Mission' },
     { id: 'pillars', label: '5 Pillars' },
-    { id: 'vision', label: 'The Vision' },
     { id: 'brotherhood', label: 'Brotherhood' },
-    { id: 'about', label: 'About Us' },
     { id: 'mentorship', label: 'Mentorship' },
+    { id: 'brother-stories', label: 'Voices' },
     { id: 'events', label: 'Gatherings' },
+    { id: 'faq-stewards', label: 'FAQ' },
   ];
 
   const handleLinkClick = (id: string) => {

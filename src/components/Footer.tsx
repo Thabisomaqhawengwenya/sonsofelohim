@@ -102,9 +102,29 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   type="button"
                   className="footer-nav-link"
                   style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
+                  onClick={() => onNavigate('brother-stories')}
+                >
+                  Voices of the Brotherhood
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="footer-nav-link"
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
                   onClick={() => onNavigate('events')}
                 >
                   Gatherings & Events
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="footer-nav-link"
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
+                  onClick={() => onNavigate('faq-stewards')}
+                >
+                  Questions Brothers Ask (FAQ)
                 </button>
               </li>
               <li>

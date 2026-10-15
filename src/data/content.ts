@@ -1,4 +1,13 @@
-import type { PillarDetail, LivingCreature, CoreValue, ApproachStep, EventItem } from '../types';
+import type {
+  PillarDetail,
+  LivingCreature,
+  CoreValue,
+  ApproachStep,
+  EventItem,
+  BrotherStory,
+  FaqItem,
+  StewardLetter,
+} from '../types';
 
 export const SITE_METADATA = {
   name: 'Sons of Elohim',
@@ -312,7 +321,7 @@ export const CORE_VALUES: CoreValue[] = [
 
 export const APPROACH_STAGES: ApproachStep[] = [
   {
-    number: '01',
+    number: 'Phase I',
     title: 'Learn',
     tagline: 'Absorb Wisdom & Practical Skills',
     description:
@@ -320,7 +329,7 @@ export const APPROACH_STAGES: ApproachStep[] = [
     actionableHabit: 'Weekly curated study modules and live knowledge sessions.',
   },
   {
-    number: '02',
+    number: 'Phase II',
     title: 'Apply',
     tagline: 'Translate Knowledge Into Relentless Action',
     description:
@@ -328,7 +337,7 @@ export const APPROACH_STAGES: ApproachStep[] = [
     actionableHabit: 'Daily 24-hour habit tracking and actionable weekly milestones.',
   },
   {
-    number: '03',
+    number: 'Phase III',
     title: 'Reflect',
     tagline: 'Assess Progress With Brutal Honesty',
     description:
@@ -336,7 +345,7 @@ export const APPROACH_STAGES: ApproachStep[] = [
     actionableHabit: 'Sunday evening self-evaluation and accountability check-in.',
   },
   {
-    number: '04',
+    number: 'Phase IV',
     title: 'Grow Together',
     tagline: 'Multiply Strength by Lifting Others',
     description:
@@ -439,3 +448,118 @@ export const CONTACT_INFO = {
     { name: 'Community Discord', handle: 'Sons of Elohim Guild', url: 'https://discord.com' },
   ],
 };
+
+export const BROTHER_STORIES: BrotherStory[] = [
+  {
+    id: 'tshepo-m',
+    name: 'Tshepo M.',
+    age: 22,
+    location: 'Johannesburg, South Africa',
+    pillarFocus: 'Financial Stewardship & Mental Fortitude',
+    timeInBrotherhood: '14 months active',
+    rawChallenge:
+      'I was working two junior tech support jobs, but I had zero savings because of compulsive retail shopping and keeping up appearances with campus friends. I was constantly stressed, hiding behind bravado.',
+    brotherhoodTurningPoint:
+      'My accountability partner sat down with me over black coffee and had me write out every cent I spent for 60 days. No shame, just brutal honesty. Today, my high-interest debt is killed and I have a 4-month emergency cushion.',
+    quote:
+      'Most guys my age have 500 followers on Instagram but not one friend who will tell them: "Put that sneaker purchase down and pay your rent." Sons of Elohim gave me brothers who love me enough to tell me the hard truth.',
+  },
+  {
+    id: 'david-k',
+    name: 'David K.',
+    age: 24,
+    location: 'Pretoria, South Africa',
+    pillarFocus: 'Spiritual Discipline & Bodily Health',
+    timeInBrotherhood: '2 years active',
+    rawChallenge:
+      'I grew up in a single-mother home. I had plenty of love, but no man ever taught me how to read Scripture consistently, how to lift weights without tearing a rotator cuff, or how to control my temper.',
+    brotherhoodTurningPoint:
+      'Showing up at 06:00 on freezing winter Saturday mornings for physical drills followed by Proverbs studies broke my laziness. The older brothers didn’t lecture me; they worked out beside me and prayed over my family.',
+    quote:
+      'You cannot become a protector and provider by accident. You have to train under men who actually live it. This brotherhood gave me the masculine foundation my youth was missing.',
+  },
+  {
+    id: 'kagiso-n',
+    name: 'Kagiso N.',
+    age: 19,
+    location: 'Cape Town, South Africa',
+    pillarFocus: 'Social Courage & Moral Purity',
+    timeInBrotherhood: '9 months active',
+    rawChallenge:
+      'My first year at university was completely hollow. Everyone was drinking themselves numb on weekends, and I felt completely isolated in my dorm room scrolling TikTok until 3 AM.',
+    brotherhoodTurningPoint:
+      'Joining the weekly Tuesday prayer triad gave me two brothers who message me at 06:30 every morning. When I had a weak moment with digital addiction, I didn’t hide in shame; I called my triad brother and we prayed until the storm passed.',
+    quote:
+      'I thought brotherhood meant laughing at memes together. In Sons of Elohim, brotherhood means someone will show up at your door if you go silent for two days.',
+  },
+  {
+    id: 'thabiso-s',
+    name: 'Thabiso S.',
+    age: 25,
+    location: 'Harare / Virtual Cohort',
+    pillarFocus: 'Leadership, Enterprise & Generational Vision',
+    timeInBrotherhood: '18 months active',
+    rawChallenge:
+      'Graduated with an engineering degree but remained unemployed for 10 months. Bitterness, apathy, and cynicism were setting in fast. I stopped attending church and felt like a failure.',
+    brotherhoodTurningPoint:
+      'The vocational roundtable tore down my resume, put me through three mock technical interviews, and connected me with contract drafting work. More than that, the brothers reminded me my identity is in Christ, not my employment status.',
+    quote:
+      'They didn’t give me a motivational speech. They gave me real interview critique, shared their data bundles with me, and prayed until I signed an offer. Now I mentor three 18-year-olds in our weekend math circle.',
+  },
+];
+
+export const STEWARD_LETTER: StewardLetter = {
+  title: 'A Letter from the Stewards',
+  signatories: [
+    'Sipho Cele (Johannesburg Chapter Lead)',
+    'Emmanuel Banda (Youth Chaplaincy & Mentorship)',
+    'Thabo Mokoena (Vocational & Financial Steward)',
+  ],
+  scripture: '1 Kings 2:2: "Be strong, and show yourself a man."',
+  paragraphs: [
+    'We did not build Sons of Elohim because we wanted to start another corporate youth program or monetize self-help courses. We built it around a wooden kitchen table because we looked around our cities and saw young men suffering in absolute isolation.',
+    'Everywhere young men look today, culture feeds them two extremes: either toxic, cynical self-indulgence that destroys character, or a passive, timid weakness that robs them of courage. Neither path honors God, and neither path builds strong families.',
+    'We believe biblical manhood is not an aesthetic you buy on social media. It is forged in unglamorous, daily obedience: getting on your knees in prayer before you touch your phone, lifting heavy weights to honor the temple God gave you, working diligently with your hands so you never become a burden, and looking after your younger brother when he falters.',
+    'If you are tired of living on an island, if you are weary of the empty bravado of digital life, you have a place at this table. We will not flatter you, but we will never abandon you.',
+  ],
+};
+
+export const HUMAN_FAQS: FaqItem[] = [
+  {
+    category: 'joining',
+    question: 'Do I have to be a seasoned Christian or church leader to join?',
+    answer:
+      'No. You do not need theological credentials or a spotless track record. We have brothers who grew up in church, and brothers who opened a Bible for the first time two weeks ago. The only requirements are genuine humility, a hunger to know Jesus Christ, and the willingness to let brothers hold you accountable.',
+  },
+  {
+    category: 'finances',
+    question: 'Is there a membership fee, course fee, or financial obligation?',
+    answer:
+      'Zero. Brotherhood is never paywalled. Sons of Elohim is supported through voluntary giving and elder stewardship. We do not sell subscriptions, courses, or masterminds. You bring your sweat, your honesty, and your commitment.',
+  },
+  {
+    category: 'brotherhood',
+    question: 'How much time commitment is expected each week?',
+    answer:
+      'Active members commit to three core rhythms: (1) Daily 5-minute morning check-in with your assigned accountability brother, (2) One 60-minute weekly cohort call or Saturday in-person gathering, and (3) Completing your personalized 5-pillar habit tracker. Consistency matters far more than long hours.',
+  },
+  {
+    category: 'spirituality',
+    question: 'What happens if I struggle with a recurring sin or fall off my habits?',
+    answer:
+      'You will find confession and restoration, not expulsion. We are not a club for men who pretend to be perfect; we are an emergency room for sinners walking in grace. If you stumble, you tell your accountability brother, repent before God, and stand back up together.',
+  },
+  {
+    category: 'joining',
+    question: 'I don’t live near Johannesburg or Pretoria. Can I still join?',
+    answer:
+      'Yes. Over 40% of our brothers participate through our regional virtual cohorts across South Africa, Zimbabwe, Kenya, the UK, and North America. You will be placed in a time-zone matched triad with regular video assemblies.',
+  },
+  {
+    category: 'brotherhood',
+    question: 'Can parents, pastors, or older mentors get involved?',
+    answer:
+      'Absolutely. For brothers under 18, parental consent and transparency are mandatory. Older men of proven character serve on our Elder Advisory Council and lead trade masterclasses without replacing local church pastoral oversight.',
+  },
+];
+
