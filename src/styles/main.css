@@ -2923,7 +2923,9 @@ p {
 }
 
 
-/* Poster Interactive Spots */
+/* ==========================================================================
+   POSTER INTERACTIVE SPOTS & TACTILE FOUNDATIONS
+   ========================================================================== */
 .poster-spot {
   position: absolute;
   cursor: pointer;
@@ -2934,27 +2936,232 @@ p {
   border-radius: 4px;
   white-space: nowrap;
   transform-origin: center center;
-  transition: transform var(--duration-fast) var(--ease-out-strong),
-              background-color var(--duration-fast) var(--ease-out-strong),
-              color var(--duration-fast) var(--ease-out-strong);
+  transition: transform 0.28s cubic-bezier(0.23, 1, 0.32, 1),
+              background-color 0.2s ease-out;
 }
 
-.poster-spot:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-}
-
-.poster-dark .poster-spot:hover {
-  background-color: rgba(197, 160, 89, 0.18);
-  color: var(--accent-bronze-bright);
+.poster-spot:focus-visible {
+  outline: 2px solid var(--accent-bronze-bright);
+  outline-offset: 2px;
 }
 
 .poster-spot.selected {
-  background-color: rgba(197, 160, 89, 0.22);
-  color: var(--accent-bronze-bright);
+  background-color: rgba(197, 160, 89, 0.16);
 }
 
 .poster-spot:active {
-  transform: scale(0.97);
+  transform: scale(0.96) !important;
+  transition: transform 0.08s ease-out !important;
+}
+
+/* Base text element transitions */
+.poster-spot .text-val,
+.poster-spot .script-line,
+.poster-spot .text-shammah-grand,
+.poster-spot .text-centerpiece-letters {
+  display: inline-block;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1),
+              color 0.22s ease-out,
+              filter 0.22s ease-out,
+              text-shadow 0.22s ease-out;
+}
+
+/* ==========================================================================
+   PLAYFUL TYPOGRAPHIC HOVER ANIMATIONS (SPRING WIGGLE & TACTILE SHAKE)
+   ========================================================================== */
+
+/* 1. Punchy Sans Shake (ABBA, ROHI, NISSI, YAHWEH, ELOHIM, JIREH, ADONAI) */
+@keyframes playfulSansShake {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+  }
+  18% {
+    transform: scale(1.1) translate3d(-2px, -3px, 0) rotate(-3.5deg);
+  }
+  38% {
+    transform: scale(1.12) translate3d(3px, -3px, 0) rotate(3deg);
+  }
+  58% {
+    transform: scale(1.08) translate3d(-1.5px, -1.5px, 0) rotate(-1.5deg);
+  }
+  78% {
+    transform: scale(1.06) translate3d(1px, -1px, 0) rotate(0.8deg);
+  }
+  100% {
+    transform: scale(1.07) translate3d(0, -2px, 0) rotate(0deg);
+  }
+}
+
+/* 2. Cursive Script Spring Wave (Christ, Savior, Messiah, Alpha and Omega, etc.) */
+@keyframes playfulScriptWave {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.13) translate3d(-1px, -3px, 0) rotate(-5.5deg);
+  }
+  42% {
+    transform: scale(1.15) translate3d(2.5px, -4px, 0) rotate(4.5deg);
+  }
+  65% {
+    transform: scale(1.09) translate3d(-1px, -2px, 0) rotate(-2deg);
+  }
+  82% {
+    transform: scale(1.07) translate3d(1px, -2px, 0) rotate(1deg);
+  }
+  100% {
+    transform: scale(1.08) translate3d(0, -2px, 0) rotate(0deg);
+  }
+}
+
+/* 3. Chiseled Serif Vibration (KING OF KINGS, EL SHADDAI, SHALOM, TSIDKENU, SHAMMAH, RAPHA) */
+@keyframes playfulSerifVibe {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.08) translate3d(0, -3px, 0) rotate(-2deg);
+  }
+  42% {
+    transform: scale(1.1) translate3d(0, -4px, 0) rotate(2deg);
+  }
+  64% {
+    transform: scale(1.06) translate3d(0, -2px, 0) rotate(-1deg);
+  }
+  84% {
+    transform: scale(1.05) translate3d(0, -2px, 0) rotate(0.5deg);
+  }
+  100% {
+    transform: scale(1.06) translate3d(0, -2px, 0) rotate(0deg);
+  }
+}
+
+/* 4. Giant Centerpiece Woodblock Stamp Rumble (JESUS / ELOHIM) */
+@keyframes playfulCenterpieceRumble {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+  }
+  15% {
+    transform: scale(1.025) translate3d(-3px, 1.5px, 0) rotate(-0.8deg);
+  }
+  32% {
+    transform: scale(1.035) translate3d(3px, -2px, 0) rotate(0.8deg);
+  }
+  48% {
+    transform: scale(1.03) translate3d(-2px, -1px, 0) rotate(-0.4deg);
+  }
+  64% {
+    transform: scale(1.025) translate3d(2px, 1px, 0) rotate(0.3deg);
+  }
+  80% {
+    transform: scale(1.02) translate3d(-1px, 0.5px, 0) rotate(-0.1deg);
+  }
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+/* ==========================================================================
+   DESKTOP HOVER MOTION & PLAYFUL KINETIC HOOKS
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+  /* Sans words hover shake */
+  .poster-spot.spot-sans-bold:hover .text-val,
+  .poster-spot.spot-sans-stacked:hover .text-val {
+    animation: playfulSansShake 0.48s cubic-bezier(0.25, 1, 0.5, 1) both;
+    color: #9E6B24;
+  }
+
+  .poster-dark .poster-spot.spot-sans-bold:hover .text-val,
+  .poster-dark .poster-spot.spot-sans-stacked:hover .text-val {
+    color: #F8CB68;
+    text-shadow: 0 0 16px rgba(248, 203, 104, 0.75), 0 0 30px rgba(197, 160, 89, 0.4);
+  }
+
+  /* Script words hover wave */
+  .poster-spot.spot-script:hover .text-val {
+    animation: playfulScriptWave 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+    color: #9E6B24;
+  }
+
+  .poster-dark .poster-spot.spot-script:hover .text-val {
+    color: #F8CB68;
+    text-shadow: 0 0 16px rgba(248, 203, 104, 0.75), 0 0 30px rgba(197, 160, 89, 0.4);
+  }
+
+  /* Stacked script words ripple wave (The Way / The Truth / The Life) */
+  .poster-spot.spot-stacked-script:hover .script-line {
+    animation: playfulScriptWave 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+    color: #9E6B24;
+  }
+
+  .poster-spot.spot-stacked-script:hover .script-line:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  .poster-spot.spot-stacked-script:hover .script-line:nth-child(2) {
+    animation-delay: 50ms;
+  }
+  .poster-spot.spot-stacked-script:hover .script-line:nth-child(3) {
+    animation-delay: 100ms;
+  }
+
+  .poster-dark .poster-spot.spot-stacked-script:hover .script-line {
+    color: #F8CB68;
+    text-shadow: 0 0 14px rgba(248, 203, 104, 0.7);
+  }
+
+  /* Serif words hover vibration */
+  .poster-spot.spot-serif-bold:hover .text-val,
+  .poster-spot.spot-serif-stacked:hover .text-val {
+    animation: playfulSerifVibe 0.46s cubic-bezier(0.25, 1, 0.5, 1) both;
+    color: #9E6B24;
+  }
+
+  .poster-dark .poster-spot.spot-serif-bold:hover .text-val,
+  .poster-dark .poster-spot.spot-serif-stacked:hover .text-val {
+    color: #F8CB68;
+    text-shadow: 0 0 16px rgba(248, 203, 104, 0.75), 0 0 30px rgba(197, 160, 89, 0.4);
+  }
+
+  /* Grand Bottom Serif SHAMMAH */
+  .poster-spot.spot-shammah-bottom:hover .text-shammah-grand {
+    animation: playfulSerifVibe 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+    color: #9E6B24;
+  }
+
+  .poster-dark .poster-spot.spot-shammah-bottom:hover .text-shammah-grand {
+    color: #F8CB68;
+    text-shadow: 0 0 20px rgba(248, 203, 104, 0.8), 0 0 35px rgba(197, 160, 89, 0.45);
+  }
+
+  /* Subtitle lift & tracking on hover */
+  .poster-spot:hover .text-sub {
+    opacity: 1;
+    letter-spacing: 0.11em;
+    transform: translateY(-1.5px);
+    color: #9E6B24;
+  }
+
+  .poster-dark .poster-spot:hover .text-sub {
+    color: var(--accent-bronze-bright);
+  }
+
+  /* Centerpiece Hover Rumble */
+  .spot-centerpiece:hover .text-centerpiece-letters {
+    animation: playfulCenterpieceRumble 0.52s cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+
+  .poster-paper .spot-centerpiece:hover .text-centerpiece-letters {
+    color: #050709;
+    filter: url(#ink-woodblock-distress) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));
+  }
+
+  .poster-dark .spot-centerpiece:hover .text-centerpiece-letters {
+    color: #FFFFFF;
+    text-shadow: 0 0 45px rgba(248, 203, 104, 0.65), 0 0 80px rgba(197, 160, 89, 0.4);
+  }
 }
 
 /* ==========================================================================
@@ -2985,11 +3192,6 @@ p {
   color: #0E1115;
   filter: url(#ink-woodblock-distress);
   transition: transform var(--duration-fast) var(--ease-out-strong);
-}
-
-.spot-centerpiece:hover .text-centerpiece-letters,
-.spot-centerpiece.selected .text-centerpiece-letters {
-  transform: scale(1.015);
 }
 
 .poster-dark .text-centerpiece-letters {
